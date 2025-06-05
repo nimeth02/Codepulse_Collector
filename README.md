@@ -1,0 +1,1 @@
+rd /s /q dist build & del /q main.spec 2>nul & pyinstaller --onefile main.py
