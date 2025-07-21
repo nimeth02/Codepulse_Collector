@@ -1,19 +1,22 @@
 import sys
-import traceback
-from PyQt6.QtWidgets import QApplication, QMessageBox
-from app import GitHubTool
+import logging
+from PyQt6.QtWidgets import QApplication
+from app import SourceProviderTool
+from utils.logging import setup_logging
+from utils.errors import show_error_message
 
 def main():
+    setup_logging()
     try:
         app = QApplication(sys.argv)
-        window = GitHubTool()
+        window = SourceProviderTool()
         window.show()
         sys.exit(app.exec())
         
     except Exception as e:
-        print("ERROR:", traceback.format_exc())
-        input("Press Enter to exit...")  # Keeps console open
+        logging.exception("Unhandled exception occurred")
+        show_error_message(str(e)) 
         sys.exit(1)
 
 if __name__ == "__main__":
-    main() 
+    main()

@@ -12,7 +12,7 @@ def setup_data_access_tab(parent):
     content_layout = QVBoxLayout(content)
     
     # Title
-    title = QLabel("GitHub Data Access Documentation")
+    title = QLabel("Provider Data Access Documentation")
     title.setStyleSheet("font-size: 16px; font-weight: bold;")
     content_layout.addWidget(title)
     
